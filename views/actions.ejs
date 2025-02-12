@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Actions</title> 
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css"> <!-- Assuming Bootstrap CSS is in public/css --> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h2>Welcome, <%= user.username %>!</h2> 
+        <p>Choose further options:</p> 
+        <a href="/logout" class="btn btn-danger">Logout</a> 
+        <% if (isAdmin) { %> 
+            <a href="/view-users" class="btn btn-info">View Users</a> 
+        <% } %> 
+    </div> 
+</body> 
+</html> 

@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sign Up</title> 
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css"> <!-- Assuming Bootstrap CSS is in public/css --> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h2>Sign Up</h2> 
+        <form action="/signup" method="POST"> 
+            <div class="form-group"> 
+                <label for="username">Username:</label> 
+                <input type="text" class="form-control" id="username" name="username" required> 
+            </div> 
+            <div class="form-group"> 
+                <label for="password">Password:</label> 
+                <input type="password" class="form-control" id="password" name="password" required> 
+            </div> 
+            <button type="submit" class="btn btn-primary">Submit</button> 
+        </form> 
+        <div> 
+            <% if (messages.error) { %> 
+                <div class="alert alert-danger"><%= messages.error %></div> 
+            <% } %> 
+            <% if (messages.success) { %> 
+                <div class="alert alert-success"><%= messages.success %></div> 
+            <% } %> 
+        </div> 
+    </div> 
+</body> 
+</html> 

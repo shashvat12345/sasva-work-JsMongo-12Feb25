@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>View Users</title> 
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css"> <!-- Assuming Bootstrap CSS is in public/css --> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h2>Registered Users</h2> 
+        <% if (messages.success) { %> 
+            <div class="alert alert-success"><%= messages.success %></div> <!-- Display success message --> 
+        <% } %> 
+        <% if (messages.error) { %> 
+            <div class="alert alert-danger"><%= messages.error %></div> <!-- Display error message --> 
+        <% } %> 
+        <form action="/delete-users" method="POST"> <!-- Form to handle delete action --> 
+            <table class="table"> 
+                <thead> 
+                    <tr> 
+                        <th>Select</th> <!-- Checkbox column header --> 
+                        <th>Username</th> 
+                        <th>Password</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <% users.forEach(user => { %> 
+                        <tr> 
+                            <td><input type="checkbox" name="usernames[]" value="<%= user.username %>"></td> <!-- Checkbox for each user --> 
+                            <td><%= user.username %></td> 
+                            <td><%= user.password %></td> 
+                        </tr> 
+                    <% }); %> 
+                </tbody> 
+            </table> 
+            <button type="submit" class="btn btn-danger">Delete Selected Users</button> <!-- Delete button --> 
+        </form> 
+        <a href="/actions" class="btn btn-secondary">Back to Actions</a> 
+    </div> 
+</body> 
+</html>
